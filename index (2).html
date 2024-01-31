@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walentynki</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #ffccff; /* Różowe tło */
+            color: #333; /* Kolor tekstu */
+        }
+
+        h1 {
+            color: #ff0066; /* Kolor różowy dla nagłówka */
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            font-size: 18px; /* Rozmiar czcionki */
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: #ff0066; /* Kolor różowy dla przycisku */
+            color: #fff; /* Kolor tekstu na przycisku */
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        p#odpowiedz {
+            display: none;
+            font-size: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Seebaaa, czy zostaniesz moją Walentynką?</h1>
+
+    <form id="walentynkiForm">
+        <label>
+            <input type="radio" name="wybor" value="tak"> Omg tak tak tak
+        </label>
+        <label>
+            <input type="radio" name="wybor" value="nie"> Yyyyy, nie dziena.
+        </label>
+        <br>
+        <button type="button" onclick="sprawdzOdpowiedz()">Sprawdź odpowiedź</button>
+    </form>
+
+    <p id="odpowiedz"></p>
+
+    <script>
+        function sprawdzOdpowiedz() {
+            var form = document.getElementById("walentynkiForm");
+            var selectedOption = form.querySelector('input[name="wybor"]:checked');
+
+            if (selectedOption) {
+                var odpowiedzElement = document.getElementById("odpowiedz");
+                var odpowiedz = selectedOption.value === "tak" ? "Widzimy się 14 lutego!" : "Takiej odpowiedzi nie przyjmuję, spróbuj jeszcze raz.";
+
+                odpowiedzElement.textContent = odpowiedz;
+                odpowiedzElement.style.display = "block";
+            } else {
+                alert("Proszę wybrać jedną z opcji.");
+            }
+        }
+    </script>
+
+</body>
+</html>
